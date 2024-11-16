@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular JS Notes</title>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="./../styles.css"> 
+        <!--rel: relationship-->
+    </head>
+    <body>
+        <h1>Angular JS Notes</h1>
+        <nav>
+            <a href="index.html">Home</a><br>
+            <a href="#section-1">Setting up a github page</a><br>
+            <a href="#section-2">Using Git commands</a><br>
+            <a href="#section-3">Browser-sync</a><br>
+        </nav>
+        <hr>
+        <div id="section-1">
+            <h2>Setting up a github page</h2>
+            After Creating a repository go to Settings > Pages and select branch main and then save.<br><br>
+            <center><img src="./Resources/Screenshot 2024-11-14 001858.png" width="80%"></center><br><br>
+            <center><img src="./Resources/Screenshot 2024-11-14 002005.png" width="70%"></center><br><br>
+            After Reloading it will indicate my domain name.
+        </div>
+        <hr>
+        <div id="section-2">
+            <h2>Using Git Commands</h2>
+            <ol>
+                <li>
+                    After changing cmd directory to work-folder, cloning a github project can be performed by:
+                    <pre>git clone &lt;project address&gt;</pre>
+                </li>
+                <li>
+                    When new modifications are made to save those modifications in the local repository use:
+                    <pre>git add .</pre>
+                </li>
+                <li>
+                    Status of the local repository can be viewed using 
+                    <pre>git status</pre>
+                </li>
+                <li>
+                    After all the required changes we can just say: 
+                    <pre>git commit -m "Some message"</pre>
+
+                </li>
+                <li>
+                    And to publish those changes on the online version of the repository use: <code>git push</code>
+                </li>
+            </ol>
+        </div>
+        <hr>
+        <div id="section-3">
+            <h2>Browser-sync</h2>
+            <ol>
+                <li>
+                    Initiating browser-sync feature:
+                    <pre>browser-sync start --server --directory --files "**/*"</pre>
+                    <ul>
+                        <li>
+                            The <code>--directory</code> mode enables to see the structure of the directory in the webpage, which will open by default.
+                        </li>
+                        <li>
+                            <code>--files</code> will watch for changes in the specified files in the argument which is here provided as <code>"**/*"</code> which means in current dir(**) watch all files(*).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Note:</b><br> 
+                    <ul>
+                        <li>
+                            The scripts might not be able to run so review and change the ExecutionPolicy. Open Poweshell in Administrator mode and navigate to work-folder. There review the current policy by:
+                            <pre>Get-ExecutionPolicy</pre>
+                        <li>
+                            And change it by using:
+                            <pre>Set-ExecutionPolicy RemoteSigned</pre>
+                            (<code>RemoteSigned</code> enables only local scripts which is preffered.)
+                        </li>
+                    </ul>
+                </li>
+            
+            </ol>
+        </div>
+        <div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+body {
+    font-family: consolas;
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+
+/*basic elements*/
+a {
+    text-decoration: none;
+    color: rgb(100, 160, 250);
+}
+hr {
+    border: 0;
+    border-top: 1px solid #767676;
+    padding: 0;
+}
+code {
+    background-color: rgb(75, 75, 75);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: consolas;
+    font-size: small;
+    line-height: 40px;
+    white-space: nowrap;
+}
+pre {
+    font-family: consolas;
+    background-color: rgb(229, 229, 229);
+    margin-left: 30px;
+    margin-right: 10px;
+    border-radius: 4px;
+    padding: 20px;
+    color: rgb(63, 63, 63);
+    border-left: 5px solid rgb(207, 134, 0);
+}
+div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
