@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How AngularJS Works</title>
+        <link rel="stylesheet" href="./../styles.css">
+    </head>
+    <body>
+        <h2>How TF does Angular JS works?</h2>
+        <nav>
+            <a href="./../index.html">Home</a><br>
+            <a href="./../angular_js/angular_js.html">angularJS</a>
+        </nav>
+        <hr>
+        Let us see with the working of this file itself.
+        <div id="target" style="border: 2px dashed white; margin:30px;" dude="Lakshya">
+            Suppose we have this div and I <br>
+            wish to gain its access by any <br>
+            means in a js file
+        </div>
+        <hr>
+        <!------------------------------------------------------------>
+        <div>
+            <h2>How Custom-Attributes work?</h2>
+            I will try to fetch the element using its id;
+
+            <pre>console.log(document.getElementById('target'));</pre>
+
+            To fetch the same element using custom attribute <code>dude</code>
+
+<pre>console.log(document.querySelector('[ng-app]');
+console.log(document.querySelector('[ng-app]').getAttribute('ng-app'));     //lakshya</pre>
+
+            This is how AngularJS gets access to elements of html as soon as we add custom attributes (pre-defined in AngularJS framework) like <code>ng-app</code>, <code>ng-controller</code> or <code>ng-non-bindable</code>
+        </div>
+        <script>
+            console.log(document.getElementById('target'));
+            console.log(document.querySelector('[dude]').getAttribute('dude'));     //Lakshya 
+        </script>
+        <!------------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+        <hr>
+        <div ng-app="hello">
+            <h2>$scope??</h2>
+            <div ng-controller="pen">
+                When we try to access $scope itself using <code>console.log($scope)</code> it returns a complex object construct.
+                From where does this appear?<br><br>
+                <center><img src="./Resources/Screenshot 2024-11-18 000351.png" width="80%"></center><br><br>
+
+                How does just by passing an argument <code>$scope</code> through the controller function creates such instance.
+                <br><br><b>Note:</b> <code>$scope.name="Lakshya";</code> causes <code>name</code> property to also appear in the construct shown above.
+                <br><br>
+                This is explained by the following example;<br>
+                A function code <code>ShoppingCart()</code> depends on value of charge which is decided by another function <code>CardProcBank1()</code> 
+                in this case. So in the code block of <code>ShoppingCart()</code> when using a <b>"Regular" Control</b> method, we would generate a new instance of the struct which will generate our charge.
+                <br><br><center><img src="./Resources/Screenshot 2024-11-18 001610.png" width="80%"></center>
+                <br>
+                However, our code is only valid as long as the outside dependencies comply and in the event of changing services from one to another, it might take a lot of effort and rewriting of code,
+                making it more prone to bugs.
+                <br><br><center><img src="./Resources/Screenshot 2024-11-18 001639.png" width="80%"></center>
+                <br>Thus to solve it we make the responsibility to create our required instances to a system js file which does all our work, using <b>Inversion of Control</b> 
+                <br><br><center><img src="./Resources/Screenshot 2024-11-18 001528.png" width="80%"></center>
+                <br> 
+                This is what AngularJS is in its essence.<br>
+                
+
+            </div>
+
+
+        </div>
+        <script src="./../angular.min.js"></script>
+        <script>
+            (function() {
+                'use strict';
+
+                angular
+                .module("hello",[])
+                .controller("pen",startpen)
+
+                function startpen($scope) {
+                    $scope.name="Lakshya";
+                    console.log($scope);
+
+                }
+            })();
+        </script>
+        
+    </body>
+</html>
