@@ -1,7 +1,12 @@
+html {
+    background-color: rgb(45, 45, 45);
+}
 body {
     font-family: consolas;
     background-color: rgb(36, 36, 36);
     color: white;
+    margin: 0px 50px;
+    padding:50px;
 }
 
 /*basic elements*/
@@ -14,6 +19,8 @@ hr {
     border-top: 1px solid #767676;
     padding: 0;
 }
+
+/*Special Elements*/
 code {
     background-color: rgb(75, 75, 75);
     color: white;
@@ -33,6 +40,10 @@ pre {
     padding: 20px;
     color: rgb(63, 63, 63);
     border-left: 5px solid rgb(207, 134, 0);
+    overflow-x: auto;
+}
+pre b {
+    color:  rgb(207, 134, 0);
 }
 div {
     padding-top: 20px;

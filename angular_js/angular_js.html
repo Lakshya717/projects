@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myFirstApp">
     <head>
         <title>Angular JS Notes</title>
-        <script src="angular.min.js"></script>
+        <script src="./../angular.min.js"></script>
         <script src="app.js"></script>
-        <link rel="stylesheet" href="./../styles.css"> 
-        <!--rel: relationship-->
+        <link rel="stylesheet" href="./../styles.css">    <!--rel: relationship-->
     </head>
     <body>
         <h1>Angular JS Notes</h1>
@@ -14,11 +13,14 @@
             <a href="#section-1">Setting up a github page</a><br>
             <a href="#section-2">Using Git commands</a><br>
             <a href="#section-3">Browser-sync</a><br>
+            <a href="#section-4">Getting Started with AngularJS</a><br>
+            <a href="#section-5">Configuring View-Model</a><br>
+            <a href="#section-6">Name Calculator</a><br>
         </nav>
         <hr>
         <div id="section-1">
             <h2>Setting up a github page</h2>
-            After Creating a repository go to Settings > Pages and select branch main and then save.<br><br>
+            After Creating a repository go to <b>Settings</b> > <b>Pages</b> and select branch main and then save.<br><br>
             <center><img src="./Resources/Screenshot 2024-11-14 001858.png" width="80%"></center><br><br>
             <center><img src="./Resources/Screenshot 2024-11-14 002005.png" width="70%"></center><br><br>
             After Reloading it will indicate my domain name.
@@ -81,8 +83,147 @@
             
             </ol>
         </div>
-        <div>
+        <hr>
+        <div id="section-4">
+            <h2>Getting Started with Angular JS</h2>
+            <ol>
+                <li>
+                    Before we dive deep into this framework we actually need to get the AngularJS 
+                    library from their website <a href="https://code.angularjs.org/">https://code.angularjs.org/</a>. <br><br>
+                    From there select suitable version and download specific files. We only reguire 
+                    <a href="https://code.angularjs.org/snapshot-stable/angular.min.js">angular.min.js</a> 
+                    which is a minified version of <a href="https://code.angularjs.org/snapshot-stable/angular.js">angular.js</a> 
+                    (All semantics and whitespaces minimized)
+                    <br><br>
+                    Another way is to use nodeJS package manager <code>npm</code> where on cmd line type:
+                    <pre>npm install angular@1.8.2</pre>
+                    Adding a <code>-g</code> argument will install the library globally thus not preferred :)
+                </li>
+                <li>
+                    Now we have <code>angular.min.js</code>, along with this we need a JS file <code>app.js</code> which will act as our <u>view</u> 
+                    . Therefore to link both of these files in html use (in order) in <code>&lt;head&gt;</code> tag;
+                    <pre>&lt;script src="angular.min.js">&lt;/script>
+&lt;script src="app.js">&lt;/script></pre>
+                </li>
+            </ol>
+        </div>
+        <hr>
+        <div id="section-5" ng-controller="myFirstController">
+            <h2>Configuring <code style="font-size: large;">app.js</code></h2>
+            <ol>
+                <li>
+                    Starting the script inside IIFE (Immediately Invoked Function Expression)</li>
+                    <pre>()();</pre>The sole purpose of this quotation is to avoid variables that bleed out in the global scope, hence everything inside this function is not valid outside(an isolated situation)
+                    <pre>(function() {
+    
+    //commands
+
+})();</pre>
+                </li>
+                <li>
+                    Now we will define our <code>module</code> property of angular using:
+                    <pre>(function() {
+    angular.module("myFirstApp", []);
+})();</pre>
+                    <code>angular.module()</code>takes two arguments: 
+                    <ul>
+                        <li>First one is the name of the app to be given <code>"myFirstApp"</code></li>
+                        <li>the second is an array of dependencies defined within <code>[]</code> (Here there are none) </li>    
+                    </ul><br>
+                    After defining it in <code>app.js</code> go to html file and hook it up in the outermost tags with a special attribute <code>ng-app="myFirstApp"</code>
+                    <pre>
+&lt;!DOCTYPE html>
+&lt;html <b>ng-app="myFirstApp"</b>>
+    &lt;head>
+        &lt;title>Angular JS Notes</title>
+        &lt;script src="angular.min.js"></script>
+        &lt;script src="app.js"></script>
+    &lt;/head>
+&lt;/html></pre>
+                    Thus Angular JS now has access over the complete html file
+                </li><br>
+                <li>
+                    Another construct of angular which is responsible for smaller sections of the html file is given as: 
+                    <code>.controller</code> property of module is specified in <code>app.js</code> as:
+<pre>(function () {
+    <b>angular</b>
+    .module('myFirstApp',[])
+    .controller('myFirstController',function() {
+        
+    });
+}
+)();</pre>
+                </li>
+                <li>
+                    After defining the basic structure of the controller, in html link it to any part of the tag to get its full control.
+                    <pre>
+&lt;div <b>ng-controller="myFirstController"</b>>
+    <span ng-non-bindable>{{}}</span>
+&lt;/div></pre>
+                    <code ng-non-bindable>{{ }}</code> are evaluated as AngularJS expressions<br><br>
+                    To explicitly display them inside a html content where ng-app is present we can use : <code>&lt;span ng-non-bindable><span ng-non-bindable>{{ }}</span>&lt;/span></code>
+                </li>
+                <li>
+                    Now pass a variable <code>$scope</code> through the function in <code>.controller</code> property of the <code>.module</code>
+<pre>
+(function () {
+    'use strict';
+
+    angular.module('myFirstApp',[])
+
+    .controller('myFirstController',function($scope) {
+        $scope.name = "Lakshya"; 
+    });
+}
+)();
+</pre>          
+                    Any property defined for <code>$scope</code> is accessible through the html file.<br><br>
+                    Try changing it yourself:
+                    <input type="text" ng-model="name"> => {{name}}
+                    <br><br>
+                    This is how we share data between view-model and controller and our view (angular_js.html)
+                </li>
+            </ol>
+        </div>
+        <hr>
+        <div id="section-6" ng-controller="myFirstController">
+            <h2>Name Calculator</h2>
+            ----------------------------------------------------------<br>
+            <input type="text" ng-model="input_stream" ng-keyup="displayNumeric();">
+            => ASCII sum: {{input_stream_sum}}<br>
+            ----------------------------------------------------------<br>
+            (see the working behind this functionality)<br><br>
+            Firstly I link the data in input-box with AngularJS using <code>ng-model</code> attribute.
+            Then <code>ng-keyup</code> acts as my <code>eventListener</code> and initiates the function 
+            <code>displayNumeric();</code>. The function and its related variables are defined as follows 
+            inside the controller property in <code>app.js</code>:
+<pre>
+(function() {
+    'use strict';
+
+    angular
+    .module("myFirstApp", [])
+    .controller("myFirstController",($scope) => {
+
+        /*Some commands....*/
+
+        $scope.input_stream = "";
+        $scope.input_stream_sum = 0;
+
+        $scope.displayNumeric = () => {
+            let string = $scope.input_stream;
+            let sum = 0;
+
+            for (let i=0;i&lt;string.length;++i)
+                sum+=string.charCodeAt(i);
+
+            $scope.input_stream_sum = sum;
+        }
+    });
+})();
+</pre> 
             
         </div>
+        <hr>
     </body>
 </html>
