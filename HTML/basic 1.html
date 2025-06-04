@@ -1,0 +1,303 @@
+<!--
+Created on 20/01/22
+Modified on 14/10/24
+
+https://html.spec.whatwg.org/multipage/parsing.html
+-->
+<!DOCTYPE html>
+<html lang="en">    <!-- This tag tells what version of HTML is being used, here HTML5 -->  
+    <head>  
+        <title>
+            Revision HTML5
+        </title>
+    </head>
+    <body>
+        <h1>This is a Heading type h1</h1>
+        <h2>This is a Heading type h2</h2>
+        <h3>This is a heading type h3</h3>
+        <h4>This is a heading type h4</h4>
+        
+        
+        <hr>
+        <em>Emphasized Text</em><br>
+        <i>italic text</i><br>
+        <b>Bold Text</b><br>
+        <strong>Strong Text</strong><br>
+        <del>Struckthrough text</del><br>
+        Normal <sup>Superscript Text</sup><br>
+        Normal <sub>Subscript Text</sub><br>
+        <code>This is a code</code><br>
+        <center>Center aligned text</center>
+
+        <hr>
+        This is an ordered list:
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ol>
+        
+        
+        
+        <hr>
+        This is an unordered list:
+        <ul>
+            <li>some</li>
+            <li>thing</li>
+            <li>is</li>
+            <li>missing</li>
+        </ul>
+        
+        <hr>
+        This is a description list:
+        <dl>
+            <dt>HTML</dt>
+            <dd>A markup language for creating web pages.</dd>
+            <dt>CSS</dt>
+            <dd>A stylesheet language used for styling HTML elements.</dd>
+        </dl>
+          
+        
+        
+        <hr>
+        This is an example of image displayed: 
+        <br><img src="test img.jpg" alt="Wallpaper" width="100">
+        
+        
+        
+        <hr>
+        Now its time to go to a website:
+        <a href="https://youtube.com">Go to youtube...</a>
+        
+        
+        
+        <hr>
+        Now its time for some complexities.
+        let's build a table.
+        <table>
+            <thead>
+                <tr>
+                    <th>Student's name</th>
+                    <th>Eng</th>
+                    <th>Physics</th>
+                    <th>Chemistry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lakshya Dubey</td>
+                    <td>22</td>
+                    <td>34</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Dhanesh Dabir</td>
+                </tr>
+                <tr>
+                    <td>Dhanush Pillai</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        
+        <hr>
+        Just wanted to build a form. <br>
+        It won't do much as it is not yet connected to anything <br>
+        But let's just take a peek now
+        <form>
+            <br>------------------------------------------------------------------------------------------------------------------------<br>
+            <!-- 
+            input tag in Form
+                /type/ Attribute
+                    -Has various types such as: text, password, radio....
+                    -Each has its own unique behaviour.
+
+                /placeholder/ Attribute
+                    -Preferably used with /type="text"/
+                    -acts as visual que or instruction for the user who is using that text box
+                
+                /name/ Attribute
+                    -used to specially identify the tag in which it is used so that it can be reffered to later
+                
+                /size/ Attribute
+                    -Preferably used with /type="text"/
+                    -used to set length of input field
+                
+                /value/ Attribute
+                    -Used to set a default return value to that input tag
+                    -mandatory tag in radio types                
+            -->
+            <label>
+                Enter Name: <input type="text" placeholder="Acc. Class 10th Marksheet" name="variable1" size="40">  <!--Default size is 20-->
+            </label>
+            <br>
+            <label>
+                Enter password: <input type="password" placeholder="password" name="variable2"> 
+            </label>
+            <br>
+            <!--
+                -If the name of more than one radio tags is set to same string then the user will be able to select only one of them
+                -Having a value tag is mandatory
+            -->
+            <input type="radio" name="color1" value="Red">Red
+            <input type="radio" name="color1" value="Yellow">Yellow
+            <input type="radio" name="color1" value="Green">Green
+            <!--Advantage of using or not using <label></label> tag is evident in this following section-->
+            <br>
+            <label><input type="radio" name="color2" value="Red">Red</label>
+            <label><input type="radio" name="color2" value="Yellow">Yellow</label>
+            <label><input type="radio" name="color2" value="Green">Green</label>
+            <br>(Hover your mouse over the first set of radio options and the second almost identical set)
+            <br>Clicking on the text of the radio button will activate the click on radio input field associated with it. 
+
+            <br><br>
+            <label><input type="checkbox" name="hobbies" value="chess">chess</label>
+            <label><input type="checkbox" name="hobbies" value="badminton">badminton</label>
+            <label><input type="checkbox" name="hobbies" value="cricket">cricket</label>
+            <label><input type="checkbox" name="hobbies" value="football">football</label>
+            <br><br>
+            <input name="class" list="classes" placeholder="Your Class">
+            <datalist id="classes">
+                <option value="X">Tenth</option>
+                <option value="XI">Eleventh</option>
+                <option value="XII">twelfth</option>
+            </datalist>
+            <br><br>
+            <select name="class_2 ">
+                <option value="X">Tenth</option>
+                <option value="XI">Eleventh</option>
+                <option value="XII" selected>twelfth</option>
+            </select>
+            <br><br>
+            <input type="submit">
+            <br>------------------------------------------------------------------------------------------------------------------------<br>
+        </form>
+        
+        
+        
+        <hr>
+        <pre>
+This tage enables the text to be diplayed as written in the code all the 
+formattings are untouched and displayed as it is on the page
+        </pre>
+
+
+
+        <hr>
+        Now before moving on, if one wants to diplay the special characters such as &lt, &amp, &gt, etc.
+        Then they must use html entity names described in the table below.
+        <table>
+            <thead>
+                <tr>
+                <th>Character</th>
+                <th>Named reference</th>
+                <th>Unicode code-point</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                <td>&amp;</td>
+                <td>&amp;amp;</td>
+                <td>U+00026</td>
+                </tr>
+                <tr>
+                <td>&lt;</td>
+                <td>&amp;lt;</td>
+                <td>U+0003C</td>
+                </tr>
+                <tr>
+                <td>&gt;</td>
+                <td>&amp;gt;</td>
+                <td>U+0003E</td>
+                </tr>
+                <tr>
+                <td>"</td>
+                <td>&amp;quot;</td>
+                <td>U+00022</td>
+                </tr>
+                <tr>
+                <td>'</td>
+                <td>&amp;apos;</td>
+                <td>U+00027</td>
+                </tr>
+                <tr>
+                <td>&nbsp;</td>
+                <td>&amp;nbsp;</td>
+                <td>U+000A0</td>
+                </tr>
+                <tr>
+                <td>–</td>
+                <td>&amp;ndash;</td>
+                <td>U+02013</td>
+                </tr>
+                <tr>
+                <td>—</td>
+                <td>&amp;mdash;</td>
+                <td>U+02014</td>
+                </tr>
+                <tr>
+                <td>©</td>
+                <td>&amp;copy;</td>
+                <td>U+000A9</td>
+                </tr>
+                <tr>
+                <td>®</td>
+                <td>&amp;reg;</td>
+                <td>U+000AE</td>
+                </tr>
+                <tr>
+                <td>™</td>
+                <td>&amp;trade;</td>
+                <td>U+02122</td>
+                </tr>
+                <tr>
+                <td>≈</td>
+                <td>&amp;asymp;</td>
+                <td>U+02248</td>
+                </tr>
+                <tr>
+                <td>≠</td>
+                <td>&amp;ne;</td>
+                <td>U+02260</td>
+                </tr>
+                <tr>
+                <td>£</td>
+                <td>&amp;pound;</td>
+                <td>U+000A3</td>
+                </tr>
+                <tr>
+                <td>€</td>
+                <td>&amp;euro;</td>
+                <td>U+020AC</td>
+                </tr>
+                <tr>
+                <td>°</td>
+                <td>&amp;deg;</td>
+                <td>U+000B0</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>To access the complete reference, go to <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">named-characters</a>
+        
+        
+        
+        <hr>
+        To display a break in line use &lt;br&gt;
+        <br>To display a horizontal line use &lt;hr&gt;
+        
+
+
+        <hr>
+        That was a brief info of the html and some basic tags<br>
+        now its time to have a revision of css as well<br>
+        Click to visit: <a href="basic 2.html">basic 2.html</a>
+        
+        
+        
+        <hr>
+        
+    </body>    
+</html>

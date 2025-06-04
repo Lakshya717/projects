@@ -1,0 +1,107 @@
+<!DOCTYPE html>     
+<html lang="en">    
+    <title>Revision CSS</title>
+    <link rel="stylesheet" href="basic 4.css">
+    <body>
+        <hr>
+        <div class="basic">
+            Now even though the css is written in a completely seperate files all the properties are still properly applied.
+            <hr>
+            ID selectors are a way to give a name to a html element that is unique, classes provide a way to give name to the 
+            html elements that are not unique and infact follow uniformity.
+            <hr>
+            <h1>Specificity</h1>
+            Specificity is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an 
+            element, which in turn, determines the property value to apply to the element. The specificity algorithm calculates 
+            the weight of a CSS selector to determine which rule <b>from competing CSS declarations</b> gets applied to an element.
+            <ol>
+                <li>inline</li>
+                <li>id</li>
+                <li>class</li>
+                <li>type</li>
+            </ol>
+            <p id="special1"><b>Note:</b> that the order in which the css property is defined doesn't matter.
+            As you can see as soon as an inline css property was defined it overruled the existing properties of div and its refering
+            class "basic" </p>
+            <hr><hr>
+            <h1>CSS selectors</h1>
+            Now there are various different types of CSS selectors.
+            <table>
+                <thead>
+                    <th>Selector</th><th>Comments</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a, b</td>
+                        <td>Multiple element Selector</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>a b</td>
+                        <td>Descendant Selector</td>
+                    </tr>
+                    <tr>
+                        <td>a > b</td>
+                        <td>Child Selector</td>
+                    </tr>
+                    <tr>
+                        <td>a + b</td>
+                        <td>Adjacent Sibling Selector</td>
+                    </tr>
+                    <tr>
+                        <td>[a=b]</td>
+                        <td>Attribute Selector</td>
+                    </tr>
+                    <tr>
+                        <td>a:b</td>
+                        <td>Pseudoclass Selector</td>
+                    </tr>
+                    <tr>
+                        <td>a::b</td>
+                        <td>Psuedoelement Selector</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            Using some of these selectors one by one in the following way:
+            <h2>Child Selector</h2>
+            Child selector: <b>"a > b"</b> applies proeprty specified to the element <b>b</b> contained just inside <b>a</b>
+            (i.e. only when it is the direct child of a)
+            <ol>
+                <li>list item one</li>
+                <li>list item two</li>
+                <ul>
+                    <li>sublist item one</li>
+                    <li>sublist item two</li>
+                </ul>
+                <li>list item three</li>
+            </ol>
+
+            <hr>
+            <h2>Descendent Selector</h2>
+            Descendent selector: <b>"a  b"</b> applies proeprty specified to the element <b>b</b> when it is contained inside <b>a</b>
+            (i.e. all elements b which are simply inside of a)
+
+            <hr>
+            <h2>Attribute Selector</h2>
+            used to identify tags with specific attribute
+            <ul>
+                <li><a href="Google.com">Google</a></li>
+                <li><a href="amazon.com">amazon</a></li>
+                <li><a href="facebook.com">facebook</a> ----Here specifically attribute with this link has been colored red</li>
+            </ul>
+
+            <hr>
+            <h2>Pseudoclass Selectors</h2>
+            A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, the pseudo-class :hover can be used to select a button when a user's pointer hovers over the button and this selected button can then be styled.
+            <br>
+            <button>Click me!</button>
+            <br>
+            <b>Note:</b> On hovering the color is different and on clicking also it is different.
+            
+            <hr>
+            Now we will move on to even newer stuff, thanks for being here till now.<br>
+            click to visit: <a href="basic 5.html">basic 5.html</a>
+        </div>
+    </body>
+</html>

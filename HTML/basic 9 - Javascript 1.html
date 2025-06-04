@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <link rel="stylesheet" href="js_tutorial.css">
+        <script>
+            //Generate a pop-up
+            //alert("Hello World!")
+
+            //Generate a pop-up only when this function is called
+            function hello() {
+                alert("Hello World!\nA button click caused this effect");
+            } 
+
+            //Generate a pop-up that keeps  track of how many times it was clicked
+            let counter=0;      //To define a modifiable variable use let
+            function count() {
+                ++counter;
+                alert(counter);
+            }
+
+            //This function modifies h2 element inside this file
+            function modify() {
+                document.querySelector('h2').innerHTML="Javascript-Section 2"
+                //Inside document search and select every h2 element and access its innerHTML property
+            }
+
+            //This function compares the h2 element's content and modifies it accordingly
+            //if else in Javascript
+            function modify_switch() {
+                //BASIC APPROACH
+
+                /*if ("Javascript-Section 2" === document.querySelector('h2').innerHTML) {
+                    document.querySelector('h2').innerHTML="Hello";
+                }
+                else {
+                    document.querySelector('h2').innerHTML="Javascript-Section 2";
+                }*/
+
+
+                //EFFICIENT APPROACH
+                const heading = document.querySelector('h2');       //use const to make sure the variable is un-modifiable.
+
+                // (===) comparision operator is stricter than (==) 
+                if ("Javascript-Section 2" === heading.innerHTML) { 
+                    heading.innerHTML="Hello";
+                }
+                else {
+                    heading.innerHTML="Javascript-Section 2";
+                }
+            }
+            
+            //This function is showing how variables can be assigned directly to innerHTML or combined with strings
+            let counter2=0;  
+            function count_display() {
+                ++counter2;
+                document.querySelector('h3').innerHTML=counter2;   
+
+                if (counter2 % 10 === 0 ) {
+                    alert(`The count has reached ${counter2}`);
+                }
+            }
+
+            let my_arr = [];
+            function append_array() {
+                let element = document.querySelector('#append_array_field').value;
+                my_arr.push(element)
+
+                let some_str = "my_arr=[";
+                my_arr.forEach(function(element) {
+                    some_str+=`"${element}",`;
+                })
+                some_str+="];"
+                document.querySelector('#display_array').innerHTML = some_str;
+                document.querySelector('#append_array_field').value = "";
+            }
+
+            let counter3=0;
+            function count_display3() {
+                ++counter3;
+                document.querySelector('#counter3 h3').innerHTML = counter3;
+
+                if (counter3 % 10 === 0 ) {
+                    alert(`The count has reached ${counter3}`);
+                }
+            }
+
+            //document.querySelector('#counter3 button').onclick = count_display3;
+
+            document.addEventListener("DOMContentLoaded",function() {
+                document.querySelector('#counter3 button').onclick = count_display3;
+            });
+
+            
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Javascript tutorial</h1>
+            <hr>
+            <ol>
+                <li>
+                    Javascripts are invoked within 
+                    <snippet>&lt;script&gt;</snippet> tag.
+
+                </li>
+                <li>
+                    This page will start with a pop-up stating "Hello World!".
+                    This occured with the help of <snippet>alert()</snippet> 
+                    function in javascript.
+                </li>
+                <li>
+                    <button onclick="hello()">Click me!</button>
+                    Clicking this button will trigger <snippet>hello()</snippet> 
+                    function. This was possible due to <snippet>onclick=""</snippet> 
+                    attribute within the <snippet>&lt;button&gt;</snippet> tag. 
+                </li>
+                <li>
+                    <button onclick="count()">See button count</button> This is how 
+                    variables are used in javascript.
+                </li>
+                <li>
+                    <h2>Hello</h2>
+                    <button onclick="modify()">Modify Heading!</button><br>
+                </li>
+                <li>
+                    <button onclick="modify_switch()">Switch!</button>
+                    Using if-else conditions in javascript in this section to change 
+                    how the website behaves based on certain conditions.
+                </li>
+                <li>
+                    <h3>0</h3>
+                    <button onclick="count_display()">Count</button>
+                    This section is showing how variables can be assigned directly to 
+                    innerHTML property or combined with strings of any HTML element.
+                    The button here will increment the above <snippet>h3</snippet> 
+                    and when it reaches multiple of 10 it will give us a pop-up alert.
+                    <br>Assume a variable <snippet>counter2</snippet> and it needs to 
+                    be shown along with a string:
+                    <pre><b>alert</b>(`The count has reached ${<b>counter2</b>}`);</pre> 
+                </li>
+                <li>
+                    I can append this array using the following field; <br>
+                    <pre id="display_array">my_arr=[]</pre>
+                    <input type="text" id="append_array_field"> <button onclick="append_array();">Append</button><br><br>
+                    Arrays in javascript has the above syntax (and the ending comma is ignored), 
+                    the syntax to initiate an array and assigning values is given in the following manner.
+                    <pre>
+array1 = [];
+array1[0] = "Hello";
+array1[1] = "World!";
+
+array2 = ["Hello","World!"];
+
+array3 = new Array();
+
+array4 = new Array(2);
+
+                    </pre> 
+                    
+                </li>
+                <li id="counter3">
+                    <h3>0</h3>
+                    <button>Count</button>
+                    Now, again performing the above task but the difference is 
+                    we have moved the <snippet>onclick=""</snippet> attribute 
+                    to the <snippet>&lt;script&gt;</snippet> tag section.<br>
+                    And the way we have done that is by assigning the
+                    <snippet>onclick</snippet> property of 
+                    <snippet>document.querySelector('#counter3 button')</snippet> 
+                    to the function <snippet>count_display3</snippet> (Note 
+                    that parenthesis() must not be used in this line else the function will get 
+                    invoked) 
+                    <pre>document.querySelector('#counter3 button').onclick = count_display3;</pre>
+                    However, only using this line will not make the counter work if the whole 
+                    button is not already loaded before the browser engine reaches this line.<br>
+                    Thus one way to make it work is simply moving this line below the HTML tag
+                    in which it has to be used.
+                    <h2>Anonymous function</h2>
+                    Another way is to configure the script to not read this line unitl the
+                    whole DOM (Document Object Model) is not loaded.
+                    <pre>
+document.addEventListener("DOMContentLoaded",function() {
+    document.querySelector('#counter3 button').onclick = count_display3;
+});</pre>
+                    So infact when we use the <snippet>onclick</snippet> property we are 
+                    acutally using another <snippet>.addEventListener()</snippet>:
+                    <pre>
+document.querySelector('#counter3 button').addEventListener("onclick", count_display3);</pre>
+
+                    <snippet>.addEventListener()</snippet> takes 2 parameters: <snippet>event-type</snippet> and <snippet>function() {f1,f2,f3,...}</snippet>
+                </li>
+                <li>
+                    <h2>List of Events:</h2>
+                    <snippet>DOMContentLoaded</snippet><br>
+                    <snippet>onclick</snippet><br>
+                </li>
+            </ol>
+            <hr>
+            Thankyou for being here till now. I am greatfull that you were able to grasp this much.
+            Please move on to this next section: <a href="basic 10 - Javascript 2.html">basic 10 - Javascript 2.html</a>
+        </div>
+    </body>
+</html>

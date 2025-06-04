@@ -1,0 +1,276 @@
+<!DOCTYPE html>     
+<html lang="en">    
+    <title>Revision CSS</title>
+    <style>
+        /*
+        In CSS, selectors are used to target the HTML elements on our web pages that we want to style. 
+        There are a wide variety of CSS selectors available, allowing for fine-grained precision when 
+        selecting elements to style.
+        Type selectors target an HTML element such as an <h1>:
+        h1 {
+        }
+
+        Class selectors target an element that has a specific value for its class attribute:
+        .box {
+        }
+
+        ID selectors target an element that has a specific value for its id attribute:
+        #unique {
+        }
+
+        https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
+        */
+        div {   /*Type selector*/
+            background-color:lightgray;
+        } 
+
+        /* '#' is required when defining an ID selector */
+        #s1 {   /*ID selector*/
+            background-color:lightgray;
+            width:300px;
+            height:300px;
+        }
+        #s2 {
+            background-color:lightgray;
+            width:300px;
+            height:300px;
+            padding:20px;
+        }
+        #s3 {
+            background-color:lightgray;
+            width:300px;
+            height:300px;
+            padding:20px;
+            margin:30px;
+        }
+        #s4 {
+            background-color:lightgray;
+            width:300px;
+            height:300px;
+            padding:20px;
+            margin:30px;
+            font-family:Arial;
+            font-size:28px;
+            font-weight: bold;
+        }
+
+        #s5 {
+            background-color:lightgray;
+            width:300px;
+            padding:20px;
+            margin:30px;
+            font-family:Arial;
+            font-size:20px;
+            border:3px solid black;
+        }
+        #s6 {
+            background-color:lightgray;
+            width:300px;
+            padding:20px;
+            margin:30px;
+            font-family:Arial;
+            font-size:20px;
+            border:3px dotted black;
+        }
+        /*
+        /border-collapse/ property in css
+            -The border-collapse CSS property sets whether cells inside a <table> have shared or separate borders.
+            -Available options: seperate/collapse
+        */
+        table {
+            border-collapse: collapse;
+        }
+
+        /*Using a multiple css selector: comma*/
+        td,th {     
+            border:1px solid black;
+            padding: 5px;
+        }
+
+        #s7 {
+            background-color:lightgray;
+            width:300px;
+            height:300px;
+            padding:20px;
+            margin:30px;
+        }
+        /*
+        The final group of selectors combine other selectors in order to target elements within our documents. 
+        The following, for example, selects paragraphs that are direct children of <article> elements using the 
+        child combinator (>):
+        */
+        #s7 > p {
+            font-weight: bold;
+            font-size:16px;
+            font-family:'Courier New', Courier, monospace;  /*If the first font is not available then the next one after comma is taken under consideration*/
+        }
+
+    </style>
+    <body>
+        <hr>
+        <div>
+            This div tag allows to divide the body into various 
+            divisions. Note that the css properties of this division
+            is applied in a different manner. All the divisions will 
+            show this characteristic style, because div style is set 
+            in this way.
+        </div>
+
+        <hr>
+        <div id="s1">
+            using the id attribute in the div tag we can specify the 
+            CSS styling with the "s1" id to be applied. In the styles 
+            tag we can define this using:
+            <pre>#s1 {}</pre>
+            here height and width are set to be 300x300px
+        </div>
+
+        <hr>
+        <div id="s2">
+            Here along with the previous styles, padding  of 20px 
+            is added evenly around the text box. 
+            <hr>
+            Note that &lt;hr&gt;draws horizontal line only accross
+            the division and not the whole webpage.
+            <hr>
+            Also, note that padding is increasing the original 
+            dimensions and the new dimensions are 340x340px
+            <hr>
+            If the text is filling up the <b>division specified 
+            size</b> then padding is ignored
+        </div>
+
+        <hr>
+        <div id="s3">
+            With a padding of 20px, an addition of margin property of 30px 
+            is added which moves the whole textbox 30 px away from the 
+            surroundings
+        </div>
+
+        <hr>
+        <div id="s4">
+            Changing font and related characteristics is also important.
+        </div>
+
+        <hr>
+        <div id="s5">
+            During this whole tutorial one thing we definitely forgot for 
+            sure was borders
+        </div>
+
+        <div id="s6">
+            During this whole tutorial one thing we definitely forgot for 
+            sure was borders
+        </div>
+            
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                <th>Character</th>
+                <th>Named reference</th>
+                <th>Unicode code-point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>&amp;</td>
+                <td>&amp;amp;</td>
+                <td>U+00026</td>
+                </tr>
+                <tr>
+                <td>&lt;</td>
+                <td>&amp;lt;</td>
+                <td>U+0003C</td>
+                </tr>
+                <tr>
+                <td>&gt;</td>
+                <td>&amp;gt;</td>
+                <td>U+0003E</td>
+                </tr>
+                <tr>
+                <td>"</td>
+                <td>&amp;quot;</td>
+                <td>U+00022</td>
+                </tr>
+                <tr>
+                <td>'</td>
+                <td>&amp;apos;</td>
+                <td>U+00027</td>
+                </tr>
+                <tr>
+                <td>&nbsp;</td>
+                <td>&amp;nbsp;</td>
+                <td>U+000A0</td>
+                </tr>
+                <tr>
+                <td>–</td>
+                <td>&amp;ndash;</td>
+                <td>U+02013</td>
+                </tr>
+                <tr>
+                <td>—</td>
+                <td>&amp;mdash;</td>
+                <td>U+02014</td>
+                </tr>
+                <tr>
+                <td>©</td>
+                <td>&amp;copy;</td>
+                <td>U+000A9</td>
+                </tr>
+                <tr>
+                <td>®</td>
+                <td>&amp;reg;</td>
+                <td>U+000AE</td>
+                </tr>
+                <tr>
+                <td>™</td>
+                <td>&amp;trade;</td>
+                <td>U+02122</td>
+                </tr>
+                <tr>
+                <td>≈</td>
+                <td>&amp;asymp;</td>
+                <td>U+02248</td>
+                </tr>
+                <tr>
+                <td>≠</td>
+                <td>&amp;ne;</td>
+                <td>U+02260</td>
+                </tr>
+                <tr>
+                <td>£</td>
+                <td>&amp;pound;</td>
+                <td>U+000A3</td>
+                </tr>
+                <tr>
+                <td>€</td>
+                <td>&amp;euro;</td>
+                <td>U+020AC</td>
+                </tr>
+                <tr>
+                <td>°</td>
+                <td>&amp;deg;</td>
+                <td>U+000B0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <div id="s7">
+            <p>
+                The final group of selectors combine other selectors in order to target elements within our documents. 
+                The following, for example, selects paragraphs that are direct children of &lt;div id="s7"&gt; elements 
+                using the child combinator (&gt;):
+            </p>
+                Since this text is not part of the &lt;p&gt; tag it won't have the effect of #s7&gt;p
+        </div>
+
+        <hr>
+        Rest of the details will be discussed in the next section and instead of putting all css properties 
+        inside a style element we will put all of them in a seperate .css file and link it to the html file 
+        using &lt;link&gt; tag.
+        <br>Click to visit: <a href="basic 4.html">basic 4.html</a>
+        <hr>
+    </body>
+</html>

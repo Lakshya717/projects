@@ -1,0 +1,51 @@
+.basic {    /*a (.) is used to define css properties for class*/
+    background-color: rgb(46, 46, 46);
+    color:white;
+    font-family:'Courier New', Courier, monospace;
+    width: 650px; 
+    padding:20px;
+    margin:20px;
+}
+
+#special1 {
+    font-family:sans-serif;
+}
+
+table {
+    background-color:rgb(30, 29, 29);
+    border-collapse:collapse;
+    margin:5px;
+    margin-top: 10px;
+}
+
+td,th {
+    border:1px rgb(151, 151, 151) solid;
+    padding:10px;
+}
+
+ol > ul {
+    color:yellow;
+}
+
+a {
+    background-color: beige;
+    padding: 2px 10px;
+}
+
+a[href="facebook.com"] {
+    color:red;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    margin:10px;
+}
+
+button:hover {
+    background-color: rgb(107, 157, 207);
+}
+
+button:active {
+    background-color: rgb(0, 93, 186);   
+}

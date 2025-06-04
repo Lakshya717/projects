@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript 2</title>
+        <link rel="stylesheet" href="js_tutorial.css">
+        <script src="tutorial.js"></script>
+    </head>
+    <body>
+        <div class="content">
+            <ul>
+                <li>
+                    <form>
+                        <h2>Form</h2>
+                        <label>
+                            Name: <input id="name" type="text" placeholder="Name"> <!--additional attribute : autofocus-->
+                        </label>
+                        <br>
+                        <input type="submit">
+                    </form>
+                </li>
+                <li>
+                    <h2 id="color2">This heading will change color if you press the buttons.</h2>
+                    <button id="red">Red</button>
+                    <button id="green">Green</button>
+                    <button id="blue">Blue</button>
+                </li>
+                <li id="s3">
+                    <h2 id="color3">Same as the earlier heading but with an optimised code...</h2>
+                    <button data-color="red">Red</button>
+                    <button data-color="green">Green</button>
+                    <button data-color="blue">Blue</button>
+                </li>
+                <li id="s4">
+                    <h2>Now with a dropdown menu...</h2>
+                    <select>
+                        <option value="black">Black</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                    </select>
+                </li>
+                <li id="s5">
+                    <h2>Tasks</h2>
+                    <ol>
+
+                    </ol>
+                    <form>
+                        Add tasks:<br>
+                        <input type="text" placeholder="New Task" name="task">
+                        <input type="submit" name="submit">
+                        <p id="task-msg"></p>
+                    </form>
+                </li>
+                <li id="s6">
+                    <h2>0</h2>
+                    <button>Count!</button>
+                </li>
+                <li id="s7">
+                    <h2>0</h2>
+                    <button>Count!</button>This will remember the value even if you reload the page!
+                </li>
+            </ul>
+                
+        </div>
+    </body>
+</html>

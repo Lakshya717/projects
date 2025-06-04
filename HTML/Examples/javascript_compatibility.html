@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example</title>
+        <script>
+            <!--
+            function print_name() {
+                document.querySelector('h1').innerHTML="Welcome Lakshya Dubey";
+            }
+
+            function checkAge() {
+                try {
+                    let age = prompt("Enter your age:");
+
+                    // Check if the age input is empty or NaN
+                    if (!age) {
+                        throw "Age is required!";
+                    } else if (isNaN(age)) {
+                        throw "Age must be a number!";
+                    } else if (age < 18) {
+                        throw "You must be 18 or older!";
+                    }
+
+                    alert("You are eligible!");
+                } catch (error) {
+                    // Display the error message if an error is thrown
+                    alert("Error: " + error);
+                }
+            }
+
+            var some_arr = new Array();
+            function make_arr() {
+                
+                let element = prompt("Enter element");
+                some_arr.push(element);
+                alert(some_arr);
+            }
+            //-->
+        </script>
+
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <button onclick="print_name();">Press to get Name</button>
+        <button onclick="checkAge();">Press to check age</button>
+        <button onclick="make_arr();">Press to append array</button>
+    </body>
+</html>
